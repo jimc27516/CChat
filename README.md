@@ -30,4 +30,6 @@ Note that npm (the package manager we used to install the express generator) is 
 ## Accessing the app from a browser
 Once you've started the server, you can show the app in a browser by starting up a browser and navigating to the following url:  [http://localhost:3000](http://localhost:3000)
 
+## Background information
 
+I've been using a tutorial [http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/] (http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/)
