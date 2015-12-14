@@ -32,4 +32,4 @@ Once you've started the server, you can show the app in a browser by starting up
 
 ## Background information
 
-I've been using a tutorial [http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/] (http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/)
+I've been using a tutorial [http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/] (http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/) as background for using Node.js (javascript web server), Express.js (app framework on top of node.js), and mongodb (document database we'll use for storing our chats).
