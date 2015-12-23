@@ -27,6 +27,31 @@ jcampbell-pro:CChat jcampbell$ DEBUG=myapp:* npm start
 
 Note that npm (the package manager we used to install the express generator) is also making our CChat program into a package.  That's why we had to run the npm install command on our app.  The actual command to start the server is inside *package.json* in the scripts section.
 
+### Starting the database
+
+* Install MongoDB
+```bash
+brew install mongodb
+```
+
+* create a directory named "data" in the CChat root folder (your path will be different than mine).
+```bash
+cd /Users/jcampbell/Documents/Test/Nodejs/CChat
+mkdir data
+
+```
+
+* start the mongo daemon, with the -dbpath arg pointing to the data directory you just created.
+```bash
+mongod -dbpath /Users/jcampbell/Documents/Test/Nodejs/CChat/data
+```
+
+* now you can start the mongo console
+```bash
+mongo
+```
+
+
 ## Accessing the app from a browser
 Once you've started the server, you can show the app in a browser by starting up a browser and navigating to the following url:  [http://localhost:3000](http://localhost:3000)
 
