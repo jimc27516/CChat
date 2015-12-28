@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1.
+        CChat 1
+    ul
+        each message, i in messageList
+            li
+                a(href="www.yahoo.com")= message
