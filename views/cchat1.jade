@@ -1,9 +1,22 @@
 extends layout
-
+function isOdd(num) { return num % 2;}
 block content
     h1.
         CChat 1
-    ul
+
+
+    table
+        - var oddCounter = 0
         each message, i in messageList
-            li
-                p=message
+            tr
+                if (++oddCounter % 2)
+                    td=message.message
+                    td
+                else
+                    td
+                    td=message.message
+
+    div.newMessageBox
+        form(name="newMessage", action="/newMessage", method="post")
+            input(type="text", name="newMessageBox")
+            input(type="submit", value="submit")

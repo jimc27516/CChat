@@ -9,9 +9,9 @@ router.get('/', function(req, res, next) {
 /* GET Userlist page. */
 var aChatConversation = {
     messageList: [
-        "what are you doing tomorrow?",
-        "not sure, how about you?",
-        "going to Chipotle"
+        { author: "Lucas", message: "what are you doing tomorrow?" } ,
+        { author: "Jim", message: "not sure, how about you?"} ,
+        { author: "Lucas", message: "going to Chipotle" }
     ]
 }
 
