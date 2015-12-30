@@ -3,3 +3,13 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  div.login
+    p Login
+    form(name="login", action="/newMessage", method="post")
+        input(type="text", name="userName")
+        p
+        input(type="password", name="pwd")
+ 
+  p.
+  a(href='/register') Register
