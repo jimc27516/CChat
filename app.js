@@ -4,6 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var uuid = require('node-uuid');
+var debug = require('debug')('http')
+  , http = require('http')
+  , name = 'CChat';
 
 // Mongo integration
 var mongo = require('mongodb');
@@ -14,8 +18,10 @@ var db = monk('localhost:27017/CChat');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var CChatRouter = require('./routes/CChatRouter');
-
+var session = require('express-session')
+var MongoDBStore = require('connect-mongodb-session')(session);
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,15 +35,31 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 // Make our db accessible to our router
 app.use(function(req,res,next){
     req.db = db;
     next();
 });
 
+var store = new MongoDBStore({ 
+    uri: 'mongodb://localhost:27017/CChatSessions',
+    collection: 'mySessions'
+});
+
+// initialize the session
+app.use(session({
+  genid: function(req) {
+    return uuid.v4(); // use UUIDs for session IDs
+  },
+  secret: 'keyboard cat',
+  store: store,
+  saveUninitialized: true,
+  resave: true
+}));
+
 app.use('/', routes);
 app.use('/users', users);
-
 app.use('/cchat', CChatRouter);
 
 // catch 404 and forward to error handler
@@ -72,4 +94,6 @@ app.use(function(err, req, res, next) {
 });
 
 
+debug('booting CChat');
+  
 module.exports = app;

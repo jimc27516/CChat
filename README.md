@@ -51,6 +51,13 @@ mongod -dbpath /Users/jcampbell/Documents/Test/Nodejs/CChat/data
 mongo
 ```
 
+## reload test test data in the database
+
+* run the file testdataload.js using the mongo shell.  
+```bash
+cd /Users/jcampbell/Documents/Test/Nodejs/CChat
+mongo testdataload.js
+```
 
 ## Accessing the app from a browser
 Once you've started the server, you can show the app in a browser by starting up a browser and navigating to the following url:  [http://localhost:3000](http://localhost:3000)

@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  div.login
+    p Login
+    form(name="login", action="/login", method="post")
+        input(type="text", name="userName")
+        p
+        input(type="password", name="pwd")
+        p
+        button#btnSubmit(type="submit") submit
+ 
+  p.
+  a(href='/register') Register
