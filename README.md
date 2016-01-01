@@ -15,7 +15,7 @@ cd Documents\Test\Nodejs\CChat
 ```bash
 DEBUG=myapp:* npm start
 ```
-* once you've starte the server, you'll see trace statements that look like these.
+* once you've started the server, you'll see trace statements that look like these.
 
 ```bash
 jcampbell-pro:CChat jcampbell$ DEBUG=myapp:* npm start
@@ -24,6 +24,18 @@ jcampbell-pro:CChat jcampbell$ DEBUG=myapp:* npm start
 > node ./bin/www
 
 ```
+## alternative to starting the server via node--use nodemon
+Install nodemon to trigger a restart of the node server everytime one of the application files is changes
+
+install nodemon
+```bash
+npm install --save-dev nodemon
+```
+start nodemon
+```bash
+DEBUG=http,CChat,index npm run watch
+```
+The first part, "DEBUG=http,CChat,index", configures debugging support.  "npm run watch" uses npm to start the app--npm looks in package.json in the scripts section and executes the script named "watch"
 
 Note that npm (the package manager we used to install the express generator) is also making our CChat program into a package.  That's why we had to run the npm install command on our app.  The actual command to start the server is inside *package.json* in the scripts section.
 
