@@ -95,5 +95,5 @@ app.use(function(err, req, res, next) {
 
 
 debug('booting CChat');
-  
+
 module.exports = app;
